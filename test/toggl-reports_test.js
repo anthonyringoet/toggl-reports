@@ -38,3 +38,14 @@ describe('Invoking the client without an api key', function(){
     done();
   })
 });
+
+describe('The client', function(){
+  it('should always have a default ua property', function(done){
+
+    var reports = new Reports('foobar');
+
+    assert.equal(reports.ua, 'node-toggl-reports');
+
+    done();
+  })
+});
