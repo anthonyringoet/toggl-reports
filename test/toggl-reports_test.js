@@ -29,23 +29,75 @@ var Reports = require('../lib/toggl-reports.js');
 var assert = require('assert');
 
 
-describe('Invoking the client without an api key', function(){
-  it('should trow an error', function(done){
+describe('The api client', function(){
+  describe('is invoked without an api key', function(){
+    it('should trow an error', function(done){
 
-    assert.throws(function(){
-      new Reports();
-    });
-    done();
-  })
+      assert.throws(function(){
+        new Reports();
+      });
+
+      done();
+    })
+  });
+
+  describe('is invoked without an ua property', function(){
+    it('should always have a default ua property', function(done){
+
+      var reports = new Reports('foobar');
+
+      assert.equal(reports.ua, 'node-toggl-reports');
+
+      done();
+    })
+  });
 });
 
-describe('The client', function(){
-  it('should always have a default ua property', function(done){
 
-    var reports = new Reports('foobar');
+describe('Report functions', function(){
 
-    assert.equal(reports.ua, 'node-toggl-reports');
+  describe('weekly', function(){
+    it('should throw an error when there is no workspace id', function(done){
 
-    done();
-  })
+      var reports = new Reports('foobar');
+
+      assert.throws(function(){
+        reports.weekly();
+      });
+
+      done();
+    })
+  });
+
+  describe('summary', function(){
+    it('should throw an error when there is no workspace id', function(done){
+
+      var reports = new Reports('foobar');
+
+      assert.throws(function(){
+        reports.summary();
+      });
+
+      done();
+    })
+  });
+
+  describe('detailed', function(){
+    it('should throw an error when there is no workspace id', function(done){
+
+      var reports = new Reports('foobar');
+
+      assert.throws(function(){
+        reports.detailed();
+      });
+
+      done();
+    })
+  });
+
+
+
 });
+
+
+// workspace id is needed in all fns
