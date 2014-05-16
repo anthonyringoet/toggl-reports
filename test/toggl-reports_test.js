@@ -1,6 +1,6 @@
 'use strict';
 
-var reports = require('../lib/toggl-reports.js');
+var Reports = require('../lib/toggl-reports.js');
 
 /*
   ======== A Handy Little Mocha Reference ========
@@ -28,9 +28,13 @@ var reports = require('../lib/toggl-reports.js');
 
 var assert = require('assert');
 
-suite('AwesomenessTest', function(){
-  test('#awesome()', function(done){
-    assert.equal(reports.awesome(), 'awesome');
+
+describe('Invoking the client without an api key', function(){
+  it('should trow an error', function(done){
+
+    assert.throws(function(){
+      new Reports();
+    });
     done();
-  });
+  })
 });
