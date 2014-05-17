@@ -18,21 +18,43 @@ var Reports = require('toggl-reports');
 var reports = new Reports('--your-api-token--');
 ```
 
-### Reports.weekly(workspaceId, fn)
+### Reports.weekly(options|workspace_id:string, fn)
+
+options can contain:
+
+- workspace_id (required)
+
+Alternatively, you can just pass the workspace_id as a string directly.
+
 
 ```
-reports.weekly('--a-workspace-id--', function(err, res){
+reports.weekly(options, function(err, res){
 	if(err) console.log(err);
 
 	console.log(res);
 });
 
+// or the other option for the weekly call
+
+reports.weekly('--your-workspace-id--', function(err, res){
+  if(err) console.log(err);
+
+  console.log(res);
+});
+
 ```
 
-### Reports.detailed(workspaceId, since, until, page, fn)
+### Reports.detailed(options, fn)
+
+options can contain:
+
+- workspace_id (required)
+- since
+- until
+- page
 
 ```
-reports.detailed(--a-workspace-id--, '2014-02-01', '2014-04-30', null, function(err, res){
+reports.detailed(options, function(err, res){
   if(err){
     log(err);
   }
@@ -41,10 +63,18 @@ reports.detailed(--a-workspace-id--, '2014-02-01', '2014-04-30', null, function(
 
 ```
 
-### Reports.summary(workspaceId, since, until, page, grouping, subgrouping, fn)
+### Reports.summary(options, fn)
+
+options can contain:
+
+- workspace_id (required)
+- since
+- until
+- grouping
+- subgrouping
 
 ```
-reports.summary(--a-workspace-id--, '2014-02-01', '2014-04-30', null, null, function(err, res){
+reports.summary(options, function(err, res){
   if(err){
     log(err);
   }
@@ -52,7 +82,6 @@ reports.summary(--a-workspace-id--, '2014-02-01', '2014-04-30', null, null, func
 });
 
 ```
-
 
 
 ## License
