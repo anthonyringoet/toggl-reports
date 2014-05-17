@@ -1,6 +1,6 @@
 {
   "name": "toggl-reports",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib/toggl-reports.js",
   "description": "Toggl Reports api wrapper",
   "homepage": "https://github.com/anthonyringoet/toggl-reports",
@@ -33,6 +33,6 @@
     "grunt-mocha-test": "~0.7.0"
   },
   "dependencies": {
-    "superagent": "^0.18.0"
+    "superagent": "~0.18.0"
   }
 }
