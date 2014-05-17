@@ -57,7 +57,7 @@ describe('The api client', function(){
 describe('Report functions', function(){
 
   describe('weekly', function(){
-    it('should throw an error when there is no workspace id', function(done){
+    it('should throw an error when there is no workspace_id', function(done){
 
       var reports = new Reports('foobar');
 
@@ -66,11 +66,22 @@ describe('Report functions', function(){
       });
 
       done();
+    });
+
+    it('should not throw an error when a string is passed as first param', function(done){
+
+      var reports = new Reports('foobar');
+
+      assert.doesNotThrow(function(){
+        reports.weekly('some-bogus-workspace-id');
+      });
+
+      done();
     })
   });
 
   describe('summary', function(){
-    it('should throw an error when there is no workspace id', function(done){
+    it('should throw an error when there is no workspace_id', function(done){
 
       var reports = new Reports('foobar');
 
@@ -83,7 +94,7 @@ describe('Report functions', function(){
   });
 
   describe('detailed', function(){
-    it('should throw an error when there is no workspace id', function(done){
+    it('should throw an error when there is no workspace_id', function(done){
 
       var reports = new Reports('foobar');
 
@@ -95,9 +106,4 @@ describe('Report functions', function(){
     })
   });
 
-
-
 });
-
-
-// workspace id is needed in all fns
