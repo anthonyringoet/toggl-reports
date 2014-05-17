@@ -1,8 +1,8 @@
 {
   "name": "toggl-reports",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "lib/toggl-reports.js",
-  "description": " Toggl Reports api wrapper",
+  "description": "Toggl Reports api wrapper",
   "homepage": "https://github.com/anthonyringoet/toggl-reports",
   "bugs": "https://github.com/anthonyringoet/toggl-reports/issues",
   "author": {
